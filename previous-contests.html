@@ -24,7 +24,6 @@
   {
     try {
       let text_data = await downloadFile();
-      console.log(text_data);
     }
     catch(e) {
       alert(e.message);
@@ -36,10 +35,16 @@
     if(response.status != 200) {
       throw new Error("Server Error");
     }
-      
     // read response stream as text
     let text_data = await response.text();
-  
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      const text = e.target.result;
+      console.log(text);
+    };
+
+    reader.readAsText(input);
     return text_data;
   }
   </script>
