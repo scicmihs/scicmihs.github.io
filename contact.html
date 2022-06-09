@@ -10,7 +10,39 @@
   <meta content="Webflow" name="generator">
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  
   <link href="css/scic2.webflow.css" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+    function postToGoogle() {
+      var field1 = $("#Name").val();
+      var field2 = $("#Email").val();
+      var field3 = $("#Phone").val();
+      var field4 = $("#Message").val();
+
+      $.ajax({
+        url: "{https://docs.google.com/forms/u/0/d/e/1FAIpQLSePaJRcvSRhxh6VAPtfaMGIagPnKiuoqyrqb7Ei5gw0HoOqew/formResponse}",
+          
+        //add your google form generated numbers below which are also the 'names' of your inputs     
+        data: {
+          "entry.1580795363": field1,
+          "entry.1027666840": field2,
+          "entry.1251679752": field3,
+          "entry.1488010660": field4
+        },
+        type: "POST",
+        dataType: "xml",
+        success: function (d) {
+          $('#contact').trigger('reset');
+        },
+        error: function (x, y, z) {
+          $('#contact').trigger('reset');
+        }
+      });
+      return false;
+    }
+  </script>
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
   <script type="text/javascript">WebFont.load({  google: {    families: ["Droid Sans:400,700","Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic"]  }});</script>
   <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif] -->
@@ -42,7 +74,7 @@
       <div class="w-row">
         <div class="w-col w-col-6">
           <div class="w-form">
-            <form id="email-form" name="email-form" data-name="Email Form" action="https://www.formingo.co/submit/f09d9f23-349d-4755-a3f5-53cdf7809176" method="post"><label for="name">Name</label><input type="text" class="w-input" maxlength="256" name="name" data-name="Name" placeholder="" id="name"><label for="email">Email Address</label><input type="email" class="w-input" maxlength="256" name="email" data-name="Email" placeholder="" id="email" required=""><label for="Phone">Phone Number</label><input type="tel" class="w-input" maxlength="256" name="Phone" data-name="Phone" placeholder="" id="Phone" required=""><label for="Message">Message</label><textarea placeholder="" maxlength="5000" id="Message" name="Message" required="" data-name="field" class="w-input"></textarea><input type="submit" value="Submit" data-wait="Please wait..." class="w-button"></form>
+            <form id="email-form" name="email-form" data-name="Email Form" action="https://www.formingo.co/submit/f09d9f23-349d-4755-a3f5-53cdf7809176" method="post"><label for="name">Name</label><input name="entry.1580795363" type="text" class="w-input" maxlength="256" name="name" data-name="Name" placeholder="" id="name"><label for="email">Email Address</label><input type="email" name="entry.1027666840" class="w-input" maxlength="256" name="email" data-name="Email" placeholder="" id="email" required=""><label for="Phone">Phone Number</label><input type="tel" name="entry.1251679752" class="w-input" maxlength="256" name="Phone" data-name="Phone" placeholder="" id="Phone" required=""><label for="Message">Message</label><textarea placeholder="" name="entry.1488010660" maxlength="5000" id="Message" name="Message" required="" data-name="field" class="w-input"></textarea><input type="submit" value="Submit" data-wait="Please wait..." class="w-button"></form>
             <div class="w-form-done">
               <div>Thank you! Your submission has been received!</div>
             </div>
