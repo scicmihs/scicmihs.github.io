@@ -65,7 +65,13 @@
         
         rcolumn = document.createElement("div");
         rcolumn.className = "wcol w-col-9";
-        rcolumn.innerHTML = "<p id=\"w-node-ef8fbdd6-0cba-3b5f-5242-6b98ddda9ccc-ee351dee\"><strong>2021 Grand Champion</strong><br>" + data[i].grand + "<br><br><strong>​Class Champions</strong><br><strong>A: </strong>" + data[i].A + "<br><strong>AA: </strong>" + data[i].AA + "<br><strong>AAA: </strong>" + data[i].AAA + "<br><strong>AAAA: </strong>" + data[i].AAAA + "(Orlando)<br><strong>AAAAA: </strong>" + data[i].AAAAA + "</p>"
+        if (data[i].override = undefined)
+        {
+        rcolumn.innerHTML = "<p id=\"w-node-ef8fbdd6-0cba-3b5f-5242-6b98ddda9ccc-ee351dee\"><strong>" + data[i].year + " Grand Champion</strong><br>" + data[i].grand + "<br><br><strong>​Class Champions</strong><br><strong>A: </strong>" + data[i].A + "<br><strong>AA: </strong>" + data[i].AA + "<br><strong>AAA: </strong>" + data[i].AAA + "<br><strong>AAAA: </strong>" + data[i].AAAA + "(Orlando)<br><strong>AAAAA: </strong>" + data[i].AAAAA + "</p>"
+        }
+        else{
+          rcolumn.innerHTML = "<p id=\"w-node-ef8fbdd6-0cba-3b5f-5242-6b98ddda9ccc-ee351dee\"><strong>" + data[i].year + "<br>" + data[i].override + "</p>";
+        }
         lcolumn.innerHTML = "<img src=\"editme/" + data[i].imgname + "\" loading=\"lazy\" alt=\"\">"
         tempdiv.appendChild(lcolumn);
         tempdiv.appendChild(rcolumn);
@@ -77,7 +83,7 @@
     }
   }
     async function downloadFile() {
-    let response = await fetch("https://sciclassic.com/editme/previousresults.csv");
+    let response = await fetch("/editme/previousresults.csv");
       
     if(response.status != 200) {
       throw new Error("Server Error");
