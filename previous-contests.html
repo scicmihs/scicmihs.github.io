@@ -24,6 +24,14 @@
   {
     try {
       let text_data = await downloadFile();
+      const reader = new FileReader();
+
+      reader.onload = function (e) {
+        const text = e.target.result;
+        console.log(text);
+      };
+
+      reader.readAsText(text_data);
     }
     catch(e) {
       alert(e.message);
@@ -37,14 +45,7 @@
     }
     // read response stream as text
     let text_data = await response.text();
-    const reader = new FileReader();
 
-    reader.onload = function (e) {
-      const text = e.target.result;
-      console.log(text);
-    };
-
-    reader.readAsText(input);
     return text_data;
   }
   </script>
