@@ -24,14 +24,7 @@
   {
     try {
       let text_data = await downloadFile();
-      const reader = new FileReader();
-
-      reader.onload = function (e) {
-        const text = e.target.result;
-        console.log(text);
-      };
-
-      reader.readAsText(text_data);
+      console.log(text_data);
     }
     catch(e) {
       alert(e.message);
