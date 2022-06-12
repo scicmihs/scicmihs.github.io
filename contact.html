@@ -35,9 +35,13 @@
         dataType: "xml",
         success: function (d) {
           $('#contact').trigger('reset');
+          document.getElementbyID("formsuccess").style.display = "block";
+          document.getElementbyID("formfail").style.display = "none";
         },
         error: function (x, y, z) {
           $('#contact').trigger('reset');
+          document.getElementbyID("formfail").style.display = "block";
+          document.getElementbyID("formsuccess").style.display = "none";
         }
       });
       return false;
@@ -85,10 +89,10 @@
               <textarea placeholder="" name="entry.1488010660" maxlength="5000" id="Message" name="Message" required="" data-name="Message" class="w-input">
               </textarea>
               <input type="submit" value="Submit" data-wait="Please wait..." class="w-button"></form>
-            <div class="w-form-done">
+            <div id="formsuccess" class="w-form-done">
               <div>Thank you! Your submission has been received!</div>
             </div>
-            <div class="w-form-fail">
+            <div id="formfail" class="w-form-fail">
               <div>Oops! Something went wrong while submitting the form.</div>
             </div>
           </div>
