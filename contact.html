@@ -36,12 +36,12 @@
         success: function (d) {
           $('#contact').trigger('reset');
           document.getElementById("formsuccess").style.display = "block";
-          document.getElementById("formfail").style.display = "none";
+             document.getElementById("formfail").style.display = "none";
         },
         error: function (x, y, z) {
           $('#contact').trigger('reset');
-          document.getElementById("formfail").style.display = "block";
-          document.getElementById("formsuccess").style.display = "none";
+           document.getElementById("formsuccess").style.display = "block";
+          document.getElementById("formfail").style.display = "none";
         }
       });
       return false;
