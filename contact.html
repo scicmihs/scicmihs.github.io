@@ -35,13 +35,13 @@
         dataType: "xml",
         success: function (d) {
           $('#contact').trigger('reset');
-          document.getElementbyID("formsuccess").style.display = "block";
-          document.getElementbyID("formfail").style.display = "none";
+          document.getElementById("formsuccess").style.display = "block";
+          document.getElementById("formfail").style.display = "none";
         },
         error: function (x, y, z) {
           $('#contact').trigger('reset');
-          document.getElementbyID("formfail").style.display = "block";
-          document.getElementbyID("formsuccess").style.display = "none";
+          document.getElementById("formfail").style.display = "block";
+          document.getElementById("formsuccess").style.display = "none";
         }
       });
       return false;
