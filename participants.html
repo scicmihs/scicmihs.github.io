@@ -1,5 +1,5 @@
-<!DOCTYPE html><!--  This site was created in Webflow. http://www.webflow.com  -->
-<!--  Last Published: Thu Jun 09 2022 04:48:20 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://www.webflow.com  -->
+<!--  Last Published: Tue Aug 16 2022 01:22:56 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="629e050b7290efb92cd7d9b4" data-wf-site="629c0c5688674280227e93a9">
 <head>
   <meta charset="utf-8">
@@ -18,7 +18,240 @@
   <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
 </head>
-<body>
+<script>
+  function csvToArray(str, delimiter = ",") {
+    if (str.length > 0)
+    {
+  // slice from start of text to the first \n index
+  // use split to create an array from string by delimiter
+  const headers = str.slice(0, str.indexOf("\r\n")).split(", ");
+
+  // slice from \n index + 1 to the end of the text
+  // use split to create an array of each csv value row
+  const rows = str.slice(str.indexOf("\n") + 1).split("\r\n");
+
+  // Map the rows
+  // split values from each row into an array
+  // use headers.reduce to create an object
+  // object properties derived from headers:values
+  // the object passed as an element of the array
+  const arr = rows.map(function (row) {
+    const values = row.split(delimiter);
+    const el = headers.reduce(function (object, header, index) {
+      object[header] = values[index];
+      return object;
+    }, {});
+    return el;
+  });
+
+  // return the array
+  return arr;
+}
+else
+{
+  return [];
+}
+}
+  
+  
+  async function loadresults()
+  {
+    try {
+      var comingsoon = 1;
+      let text_data = await downloadFile();
+      console.log(text_data);
+      const data = csvToArray(text_data);
+      console.log(data);
+      if (!data.length == 0)
+      {
+      data.sort((a,b) => (a.Class < b.Class) ? 1 : ((b.Class < a.Class) ? -1 : 0))
+      console.log(data);
+
+      var arr = new Array(7);
+      for(var i = 0; i < 7 ; i++)
+      {
+        arr[i] = new Array();
+      }
+      for (var i = 0; i < data.length;i++)
+      {
+        let tempclass = data[i].Class.substring(0,data[i].Class.length-1);
+        console.log(tempclass);
+        arr[parseInt(tempclass)].push(data[i].School);
+      }
+      for(var i = 0; i < 7 ; i++)
+      {
+        arr[i].sort();
+          switch(i)
+          {
+            case 1:
+            if (arr[i].length == 0)
+                {
+                    
+                    document.getElementById("AHeading").style.display = "none";
+                    document.getElementById("ABands").style.display = "none";
+                }
+                else
+                {
+                  for (var j = 0; j < arr[i].length;j++)
+                  {
+                    comingsoon = 0;
+                    let pnode = document.createElement("p");
+                    let text = document.createTextNode(arr[i][j]);
+                    pnode.appendChild(text);
+                    pnode.style.textAlign = "center";
+                    document.getElementById("ABands").appendChild(pnode);
+                  }
+                }
+            break;
+            case 2:
+            if (arr[i].length == 0)
+                {
+                    document.getElementById("AAHeading").style.display = "none";
+                    document.getElementById("AABands").style.display = "none";
+                }
+                else
+                {
+                  for (var j = 0; j < arr[i].length;j++)
+                  {
+                    comingsoon = 0;
+                    let pnode = document.createElement("p");
+                    let text = document.createTextNode(arr[i][j]);
+                    pnode.appendChild(text);
+                    pnode.style.textAlign = "center";
+                    document.getElementById("AABands").appendChild(pnode);
+                  }
+                }
+            break;
+            case 3:
+            if (arr[i].length == 0)
+                {
+                    document.getElementById("AAAHeading").style.display = "none";
+                    document.getElementById("AAABands").style.display = "none";
+                }
+                else
+                {
+                  for (var j = 0; j < arr[i].length;j++)
+                  {
+                    comingsoon = 0;
+                    let pnode = document.createElement("p");
+                    let text = document.createTextNode(arr[i][j]);
+                    pnode.appendChild(text);
+                    pnode.style.textAlign = "center";
+                    document.getElementById("AAABands").appendChild(pnode);
+                  }
+                }
+            break;
+            case 4:
+          if (arr[i].length == 0)
+                {
+                    document.getElementById("AAAAHeading").style.display = "none";
+                    document.getElementById("AAAABands").style.display = "none";
+                }
+                else
+                {
+                  for (var j = 0; j < arr[i].length;j++)
+                  {
+                    comingsoon = 0;
+                    let pnode = document.createElement("p");
+                    let text = document.createTextNode(arr[i][j]);
+                    pnode.appendChild(text);
+                    pnode.style.textAlign = "center";
+                    document.getElementById("AAAABands").appendChild(pnode);
+                  }
+                }
+        
+            break;
+            case 5:
+            if (arr[i].length == 0)
+                {
+                    document.getElementById("AAAAAHeading").style.display = "none";
+                    document.getElementById("AAAAABands").style.display = "none";
+                }
+                else
+                {
+                  for (var j = 0; j < arr[i].length;j++)
+                  {
+                    comingsoon = 0;
+                    let pnode = document.createElement("p");
+                    let text = document.createTextNode(arr[i][j]);
+                    pnode.appendChild(text);
+                    pnode.style.textAlign = "center";
+                    document.getElementById("AAAAABands").appendChild(pnode);
+                  }
+                }
+            break;
+            case 6:
+            if (arr[i].length == 0)
+                {
+                    document.getElementById("AAAAAAHeading").style.display = "none";
+                    document.getElementById("AAAAAABands").style.display = "none";
+                }
+                else
+                {
+                  for (var j = 0; j < arr[i].length;j++)
+                  {
+                    comingsoon = 0;
+                    let pnode = document.createElement("p");
+                    let text = document.createTextNode(arr[i][j]);
+                    pnode.appendChild(text);
+                    pnode.style.textAlign = "center";
+                    document.getElementById("AAAAAABands").appendChild(pnode);
+                  }
+                }
+            break;
+
+
+
+
+          }
+        
+      }
+    }
+    else
+    {
+      comingsoon = 1;
+    }
+      if (comingsoon == 1)
+      {
+        document.getElementById("comingsoon").style.display = "block";
+        document.getElementById("AAAAAAHeading").style.display = "none";
+        document.getElementById("AAAAAABands").style.display = "none";
+        document.getElementById("AAAAAHeading").style.display = "none";
+        document.getElementById("AAAAABands").style.display = "none";
+        document.getElementById("AAAAHeading").style.display = "none";
+        document.getElementById("AAAABands").style.display = "none";
+        document.getElementById("AAAHeading").style.display = "none";
+        document.getElementById("AAABands").style.display = "none";
+        document.getElementById("AAHeading").style.display = "none";
+        document.getElementById("AABands").style.display = "none";
+        document.getElementById("AHeading").style.display = "none";
+        document.getElementById("ABands").style.display = "none";
+
+      }
+      else
+      {
+        document.getElementById("comingsoon").style.display = "none";
+      }
+      console.log(arr);
+      
+    }
+    catch(e) {
+      alert(e.message);
+    }
+  }
+    async function downloadFile() {
+    let response = await fetch("/editme/participants.csv");
+      
+    if(response.status != 200) {
+      throw new Error("Server Error");
+    }
+    // read response stream as text
+    let text_data = await response.text();
+
+    return text_data;
+  }
+  </script>
+<body onload="loadresults()">
   <div data-collapse="medium" data-animation="default" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="nav w-nav">
     <div class="nav-container w-container">
       <a href="#" class="logo w-nav-brand"><img src="images/62903441db03afb336f4f13b_fd675f_61be6a007a4e4f908991701ad2b0c4ab.png" loading="lazy" width="107" alt=""></a>
@@ -38,10 +271,26 @@
   </div>
   <div class="section-7 wf-section">
     <div>
-      <h1 class="heading-6">2022 Competing Bands Coming Soon</h1>
+      <h1 class="heading-6">2022 Competing Bands</h1>
     </div>
   </div>
-  <div class="wf-section"></div>
+  <div class="wf-section">
+    <div class="w-container">
+      <h1 id = "comingsoon" style="text-align:center" class="heading-10">Coming Soon</h1>
+      <h1 id = "AAAAAAHeading" style="text-align:center" class="heading-10">Class AAAAAA</h1>
+      <div id="AAAAAABands"></div>
+      <h1 id = "AAAAAHeading" style="text-align:center" class="heading-10">Class AAAAA</h1>
+      <div id="AAAAABands"></div>
+      <h1 id = "AAAAHeading" style="text-align:center" class="heading-10">Class AAAA</h1>
+      <div id="AAAABands"></div>
+      <h1 id = "AAAHeading" style="text-align:center" class="heading-10">Class AAA</h1>
+      <div id="AAABands"></div>
+      <h1 id = "AAHeading" style="text-align:center" class="heading-10">Class AA</h1>
+      <div id="AABands"></div>
+      <h1 id = "AHeading" style="text-align:center" class="heading-10">Class A</h1>
+      <div id="ABands"></div>
+    </div>
+  </div>
   <div class="footer-top">
     <div class="div-block-2">
       <div class="footer-top-wrap"><img src="images/62903441db03afb336f4f13b_fd675f_61be6a007a4e4f908991701ad2b0c4ab.png" loading="lazy" width="133" alt="" class="image-3">
