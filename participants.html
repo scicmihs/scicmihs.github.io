@@ -74,9 +74,12 @@ else
       }
       for (var i = 0; i < data.length;i++)
       {
+        if (data[i].Class != '')
+        {
         let tempclass = data[i].Class.substring(0,data[i].Class.length-1);
         console.log(tempclass);
         arr[parseInt(tempclass)].push(data[i].School);
+        }
       }
       for(var i = 0; i < 7 ; i++)
       {
