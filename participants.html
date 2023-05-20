@@ -60,7 +60,7 @@ else
       var comingsoon = 1;
       let text_data = await downloadFile();
       const data = csvToArray(text_data);
-        if(data[0].School != "comingsoon")
+        if(data[0].Class != "comingsoon")
         {
         data.sort((a,b) => (a.Class < b.Class) ? 1 : ((b.Class < a.Class) ? -1 : 0))
         var arr = new Array(7);
