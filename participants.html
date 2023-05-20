@@ -59,19 +59,15 @@ else
     try {
       var comingsoon = 1;
       let text_data = await downloadFile();
-      console.log(text_data);
       const data = csvToArray(text_data);
-      console.log(data);
-      if (!data.length == 0)
-      {
-      data.sort((a,b) => (a.Class < b.Class) ? 1 : ((b.Class < a.Class) ? -1 : 0))
-      console.log(data);
-
-      var arr = new Array(7);
-      for(var i = 0; i < 7 ; i++)
-      {
-        arr[i] = new Array();
-      }
+        if(data[0].School != "comingsoon")
+        {
+        data.sort((a,b) => (a.Class < b.Class) ? 1 : ((b.Class < a.Class) ? -1 : 0))
+        var arr = new Array(7);
+        for(var i = 0; i < 7 ; i++)
+        {
+          arr[i] = new Array();
+        }
       for (var i = 0; i < data.length;i++)
       {
         if (data[i].Class != '')
