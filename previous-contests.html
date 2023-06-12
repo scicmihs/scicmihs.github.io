@@ -60,7 +60,6 @@
                 if (data[i].year != undefined && data[i].year != "")
         {
         tempdiv = document.createElement("div");
-        tempdiv.id = "w-node-_62937c53-22ff-f146-4d6f-b2199957e63d-ee351dee";
         tempdiv.className = "w-row";
         lcolumn = document.createElement("div");
         lcolumn.className = "w-col w-col-3";
@@ -70,10 +69,10 @@
 
         if (data[i].override == "")
         {
-        rcolumn.innerHTML = "<p id=\"w-node-ef8fbdd6-0cba-3b5f-5242-6b98ddda9ccc-ee351dee\"><strong>" + data[i].year + " Grand Champion</strong><br>" + data[i].grand + "<br><br><strong>​Class Champions</strong><br><strong>A: </strong>" + data[i].A + "<br><strong>AA: </strong>" + data[i].AA + "<br><strong>AAA: </strong>" + data[i].AAA + "<br><strong>AAAA: </strong>" + data[i].AAAA + "<br><strong>AAAAA: </strong>" + data[i].AAAAA + "</p>"
+        rcolumn.innerHTML = "<p><strong>" + data[i].year + " Grand Champion</strong><br>" + data[i].grand + "<br><br><strong>​Class Champions</strong><br><strong>A: </strong>" + data[i].A + "<br><strong>AA: </strong>" + data[i].AA + "<br><strong>AAA: </strong>" + data[i].AAA + "<br><strong>AAAA: </strong>" + data[i].AAAA + "<br><strong>AAAAA: </strong>" + data[i].AAAAA + "</p>"
         }
         else{
-          rcolumn.innerHTML = "<p id=\"w-node-ef8fbdd6-0cba-3b5f-5242-6b98ddda9ccc-ee351dee\"><strong>" + data[i].year + "<br>" + data[i].override + "</p>";
+          rcolumn.innerHTML = "<p><strong>" + data[i].year + "<br>" + data[i].override + "</p>";
         }
         lcolumn.innerHTML = "<img src=\"editme/" + data[i].imgname + "\" loading=\"lazy\" style=\"height:100%\" alt=\"\">"
         tempdiv.appendChild(lcolumn);
