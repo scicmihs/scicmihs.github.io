@@ -59,24 +59,22 @@ else
     try {
       var comingsoon = 1;
       let text_data = await downloadFile();
-      console.log(text_data);
       const data = csvToArray(text_data);
-      console.log(data);
-      if (!data.length == 0)
-      {
-      data.sort((a,b) => (a.Class < b.Class) ? 1 : ((b.Class < a.Class) ? -1 : 0))
-      console.log(data);
-
-      var arr = new Array(7);
-      for(var i = 0; i < 7 ; i++)
-      {
-        arr[i] = new Array();
-      }
+        if(data[0].Class != "comingsoon")
+        {
+        data.sort((a,b) => (a.Class < b.Class) ? 1 : ((b.Class < a.Class) ? -1 : 0))
+        var arr = new Array(7);
+        for(var i = 0; i < 7 ; i++)
+        {
+          arr[i] = new Array();
+        }
       for (var i = 0; i < data.length;i++)
       {
+        if (data[i].Class != '')
+        {
         let tempclass = data[i].Class.substring(0,data[i].Class.length-1);
-        console.log(tempclass);
         arr[parseInt(tempclass)].push(data[i].School);
+        }
       }
       for(var i = 0; i < 7 ; i++)
       {
@@ -232,11 +230,10 @@ else
       {
         document.getElementById("comingsoon").style.display = "none";
       }
-      console.log(arr);
       
     }
     catch(e) {
-      alert(e.message);
+      console.log(e.message);
     }
   }
     async function downloadFile() {
@@ -271,7 +268,7 @@ else
   </div>
   <div class="section-7 wf-section">
     <div>
-      <h1 class="heading-6">2022 Competing Bands</h1>
+      <h1 class="heading-6">2023 Competing Bands</h1>
     </div>
   </div>
   <div class="wf-section">
