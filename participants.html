@@ -238,7 +238,7 @@ else
     }
   }
     async function downloadFile() {
-    let response = await fetch("/editme/participants.csv");
+    let response = await fetch("/editme/participants.csv", {cache: "no-store"});
       
     if(response.status != 200) {
       throw new Error("Server Error");
