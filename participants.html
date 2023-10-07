@@ -74,12 +74,18 @@ else
         if (data[i].Class != '')
         {
         let tempclass = data[i].Class.substring(0,data[i].Class.length-1);
-        arr[parseInt(tempclass)].push(data[i].School + " - " + data[i].Time);
+        arr[parseInt(tempclass)].push({'text':data[i].School + " - " + data[i].Time,"Time":"10/7/2023 " + data[i].Time});
         }
+      }
+      for(var i = 0; i < arr.length;i++)
+      {
+        arr[i].sort(function(a, b) {
+    return new Date(a.Time) - new Date(b.Time);
+});
       }
       for(var i = 0; i < 7 ; i++)
       {
-        arr[i].sort();
+        //arr[i].sort();
           switch(i)
           {
             case 1:
@@ -95,7 +101,7 @@ else
                   {
                     comingsoon = 0;
                     let pnode = document.createElement("p");
-                    let text = document.createTextNode(arr[i][j]);
+                    let text = document.createTextNode(arr[i][j].text);
                     pnode.appendChild(text);
                     pnode.style.textAlign = "center";
                     document.getElementById("ABands").appendChild(pnode);
@@ -114,7 +120,7 @@ else
                   {
                     comingsoon = 0;
                     let pnode = document.createElement("p");
-                    let text = document.createTextNode(arr[i][j]);
+                    let text = document.createTextNode(arr[i][j].text);
                     pnode.appendChild(text);
                     pnode.style.textAlign = "center";
                     document.getElementById("AABands").appendChild(pnode);
@@ -133,7 +139,7 @@ else
                   {
                     comingsoon = 0;
                     let pnode = document.createElement("p");
-                    let text = document.createTextNode(arr[i][j]);
+                    let text = document.createTextNode(arr[i][j].text);
                     pnode.appendChild(text);
                     pnode.style.textAlign = "center";
                     document.getElementById("AAABands").appendChild(pnode);
@@ -152,7 +158,7 @@ else
                   {
                     comingsoon = 0;
                     let pnode = document.createElement("p");
-                    let text = document.createTextNode(arr[i][j]);
+                    let text = document.createTextNode(arr[i][j].text);
                     pnode.appendChild(text);
                     pnode.style.textAlign = "center";
                     document.getElementById("AAAABands").appendChild(pnode);
@@ -172,7 +178,7 @@ else
                   {
                     comingsoon = 0;
                     let pnode = document.createElement("p");
-                    let text = document.createTextNode(arr[i][j]);
+                    let text = document.createTextNode(arr[i][j].text);
                     pnode.appendChild(text);
                     pnode.style.textAlign = "center";
                     document.getElementById("AAAAABands").appendChild(pnode);
@@ -191,7 +197,7 @@ else
                   {
                     comingsoon = 0;
                     let pnode = document.createElement("p");
-                    let text = document.createTextNode(arr[i][j]);
+                    let text = document.createTextNode(arr[i][j].text);
                     pnode.appendChild(text);
                     pnode.style.textAlign = "center";
                     document.getElementById("AAAAAABands").appendChild(pnode);
