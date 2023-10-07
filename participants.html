@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Participants</title>
+  <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
   <meta content="Participants" property="og:title">
   <meta content="Participants" property="twitter:title">
   <meta content="width=device-width, initial-scale=1" name="viewport">
@@ -73,7 +74,7 @@ else
         if (data[i].Class != '')
         {
         let tempclass = data[i].Class.substring(0,data[i].Class.length-1);
-        arr[parseInt(tempclass)].push(data[i].School);
+        arr[parseInt(tempclass)].push(data[i].School + " - " + data[i].Time);
         }
       }
       for(var i = 0; i < 7 ; i++)
