@@ -74,7 +74,13 @@ else
         if (data[i].Class != '')
         {
         let tempclass = data[i].Class.substring(0,data[i].Class.length-1);
-        arr[parseInt(tempclass)].push({'text':data[i].School + " - " + data[i].Time,"Time":"10/7/2023 " + data[i].Time});
+        if ("Time" in data[i])
+        {
+        arr[parseInt(tempclass)].push({'text':data[i].School + " - " + data[i].Time,"Time":"10/4/2025 " + data[i].Time});
+        }
+        else{
+          arr[parseInt(tempclass)].push({'text':data[i].School,"Time":"10/4/2025 " + data[i].Time});
+        }
         }
       }
       for(var i = 0; i < arr.length;i++)
