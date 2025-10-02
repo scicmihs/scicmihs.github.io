@@ -118,7 +118,6 @@
         document.getElementById("evname").innerHTML = data[5][1];
         document.getElementById("cgname").innerHTML = data[6][1];
         document.getElementById("pname").innerHTML = data[7][1];
-        document.getElementById("tpname").innerHTML = data[8][1];
         document.getElementById("gebio").innerHTML = data[0][2];
         document.getElementById("gevbio").innerHTML = data[1][2];
         document.getElementById("embio").innerHTML = data[2][2];
@@ -127,7 +126,6 @@
         document.getElementById("evbio").innerHTML = data[5][2];
         document.getElementById("cgbio").innerHTML = data[6][2];
         document.getElementById("pbio").innerHTML = data[7][2];
-        document.getElementById("tpbio").innerHTML = data[8][2];
       }
       catch(e) {
         console.log(e.message);
@@ -183,6 +181,12 @@
         <ul role="list" class="w-list-unstyled">
           <li class="list-item-5">
             <a href="directions.html" class="downloadlink w-button">Directions to SCIC</a>
+          </li>
+          <li class="list-item-5">
+            <a href="2025 Space Coast Island Performance Schedule.pdf" class="downloadlink w-button">Schedule</a>
+          </li>
+          <li class="list-item-5">
+            <a href="SCIC Menu Pre Order.pdf" class="downloadlink w-button">Concession Menu/Pre-Order Form</a>
           </li>
         </ul>
       </div>
@@ -263,11 +267,6 @@
         <p class="paragraph-6" id="pbio"></p>
       </nav>
     </div>
-    <div data-hover="false" data-delay="0" data-w-id="b98ad093-96e6-a862-654d-47a2c1e5959c" style="height:80px" class="accordion-item w-dropdown">
-      <div class="accordion-toggle w-dropdown-toggle">
-        <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)" class="accordion-icon w-icon-dropdown-toggle"></div>
-        <div class="text-block"><strong>Timing and Penalty: </strong><strong  id="tpname"></strong> <em>(Click to Expand Bio)</em></div>
-      </div>
       <nav class="dropdown-list w-dropdown-list">
         <p class="paragraph-6" id="tpbio"></p> 
  </nav>
