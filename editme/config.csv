@@ -1,0 +1,26 @@
+# Edit these values each year and the website will update itself.
+# Lines starting with # are ignored.
+
+# Which annual show this is (just the number - the site adds "st"/"nd"/"rd"/"th")
+annual,21
+
+# The show date in month/day/year format. The site figures out the day of the
+# week and the year from this, so it is also used for headings like
+# "2026 Competing Bands" and for sorting performance times.
+# You can also put TBD here if the date isn't set yet.
+date,10/3/2026
+
+# Show start and end time. Either can be TBD if not decided yet.
+starttime,TBD
+endtime,TBD
+# Time the gates open. Can also be TBD.
+gatesopen,TBD
+
+# Set this to yes right after this year's show is over, while you're not
+# ready to announce next year's details yet. While it is yes:
+#   - the annual number automatically bumps up one (21st -> 22nd)
+#   - the year headings bump to next year (2026 -> 2027)
+#   - the date, show times, and gates time all display as TBD
+# When next year's details are ready: update annual, date, and the times
+# above, then set this back to no.
+betweenshows,no
